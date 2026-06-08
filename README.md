@@ -1,7 +1,7 @@
 # Sofa.GamepadController
 This module allows you to handle gamepad events in your SOFA scene.
 
-<img src="xbox_controller_mappings.png" width="800px"></img>
+<img src="xbox_controller_mappings.jpg" width="800px"></img>
 
 ## Usage
 There are two important classes for users: `GamepadSofaController` and `GamepadCallbacks`
