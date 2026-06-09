@@ -40,9 +40,10 @@ class GamepadSofaController(Sofa.Core.Controller):
             Index of the gamepad to use if multiple gamepads are connected. By default, it uses the first gamepad detected (index 0).
     """
 
-    def __init__(self, callbacks: GamepadCallbacks = GamepadCallbacks(), index: int = 0):
+    def __init__(self, callbacks: GamepadCallbacks = GamepadCallbacks(), index: int = 0, name: str = "GamepadController"):
         
         super().__init__()
+        self.name = name
         self.gamepadState : GamepadState = None
         self.gamepad = None
         self.callbacks = callbacks
