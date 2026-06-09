@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sofagamepadcontroller"
+version = "0.1.0"
+description = "SOFA Gamepad Controller module"
+requires-python = ">=3.10"
+dependencies = [
+    "inputs",
+]
+keywords = ["robotics", "emio", "gamepad"]
+authors = [
+    {name = "Compliance Robotics", email = "support@compliance-robotics.com"}
+]
+
+[tool.setuptools]
+packages = ["sofagamepadcontroller"]
+
+[project.urls]
+Repository = "https://github.com/SofaComplianceRobotics/Sofa.GamepadController"

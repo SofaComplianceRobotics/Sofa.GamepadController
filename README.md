@@ -18,7 +18,7 @@ There are two important classes for users: `GamepadSofaController` and `GamepadC
 For example, if you just want to react to a released `A` button or a left stick movement:
 
 ```python
-from gamepad import GamepadSofaController, GamepadCallbacks
+from sofagamepadcontroller import GamepadSofaController, GamepadCallbacks
 
 def createScene(rootnode):
 

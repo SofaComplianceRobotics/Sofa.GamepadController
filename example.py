@@ -1,4 +1,4 @@
-from gamepad import GamepadSofaController, GamepadCallbacks
+from sofagamepadcontroller import GamepadSofaController, GamepadCallbacks
 import numpy as np
 
 
