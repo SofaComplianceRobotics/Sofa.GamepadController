@@ -48,5 +48,5 @@ def createScene(rootnode):
     callbacks = GamepadCallbacks()
     callbacks.sticks.left.moved = moveFrameXZ
     callbacks.sticks.right.moved = moveFrameY
-    callbacks.buttons.released.south = invertAxis
+    callbacks.buttons.south.released = invertAxis
     rootnode.addObject(GamepadSofaController(callbacks=callbacks))

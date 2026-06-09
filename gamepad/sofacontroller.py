@@ -104,41 +104,6 @@ class GamepadSofaController(Sofa.Core.Controller):
             
         # Based on the updated gamepad state, determine the target position and gripper state
         
-        # Buttons
-        ## Released 
-        if self.gamepadState.buttons.south == 0 and previous_south_button == 1: 
-            if self.callbacks.buttons.released.south is not None:
-                self.callbacks.buttons.released.south()
-
-        if self.gamepadState.buttons.north == 0 and previous_north_button == 1: 
-            if self.callbacks.buttons.released.north is not None:
-                self.callbacks.buttons.released.north()
-
-        if self.gamepadState.buttons.east == 0 and previous_east_button == 1: 
-            if self.callbacks.buttons.released.east is not None:
-                self.callbacks.buttons.released.east()
-
-        if self.gamepadState.buttons.west == 0 and previous_west_button == 1: 
-            if self.callbacks.buttons.released.west is not None:
-                self.callbacks.buttons.released.west()
-
-        ## Pressed
-        if self.gamepadState.buttons.south == 1 and previous_south_button == 1: 
-            if self.callbacks.buttons.pressed.south is not None:
-                self.callbacks.buttons.pressed.south()
-        
-        if self.gamepadState.buttons.north == 1 and previous_north_button == 1: 
-            if self.callbacks.buttons.pressed.north is not None:
-                self.callbacks.buttons.pressed.north()
-
-        if self.gamepadState.buttons.east == 1 and previous_east_button == 1: 
-            if self.callbacks.buttons.pressed.east is not None:
-                self.callbacks.buttons.pressed.east()
-        
-        if self.gamepadState.buttons.west == 1 and previous_west_button == 1: 
-            if self.callbacks.buttons.pressed.west is not None:
-                self.callbacks.buttons.pressed.west()
-
         # Triggers   
         if self.gamepadState.triggers.right.z != 0: 
             if self.callbacks.triggers.right.z is not None:
@@ -181,37 +146,69 @@ class GamepadSofaController(Sofa.Core.Controller):
             if self.callbacks.sticks.right.released is not None:
                 self.callbacks.sticks.right.released()
 
+        # Buttons
+        ## Released 
+        if self.gamepadState.buttons.south == 0 and previous_south_button == 1: 
+            if self.callbacks.buttons.south.released is not None:
+                self.callbacks.buttons.south.released()
+
+        if self.gamepadState.buttons.north == 0 and previous_north_button == 1: 
+            if self.callbacks.buttons.north.released is not None:
+                self.callbacks.buttons.north.released()
+
+        if self.gamepadState.buttons.east == 0 and previous_east_button == 1: 
+            if self.callbacks.buttons.east.released is not None:
+                self.callbacks.buttons.east.released()
+        if self.gamepadState.buttons.west == 0 and previous_west_button == 1: 
+            if self.callbacks.buttons.west.released is not None:
+                self.callbacks.buttons.west.released()
+
+        ## Pressed
+        if self.gamepadState.buttons.south == 1 and previous_south_button == 1: 
+            if self.callbacks.buttons.south.pressed is not None:
+                self.callbacks.buttons.south.pressed()
+        
+        if self.gamepadState.buttons.north == 1 and previous_north_button == 1: 
+            if self.callbacks.buttons.north.pressed is not None:
+                self.callbacks.buttons.north.pressed()
+
+        if self.gamepadState.buttons.east == 1 and previous_east_button == 1: 
+            if self.callbacks.buttons.east.pressed is not None:
+                self.callbacks.buttons.east.pressed()
+        
+        if self.gamepadState.buttons.west == 1 and previous_west_button == 1: 
+            if self.callbacks.buttons.west.pressed is not None:
+                self.callbacks.buttons.west.pressed()
+
         # D-pad
         ## Released
         if self.gamepadState.dpad.north == 0 and previous_north_dpad == 1:
-            if self.callbacks.dpad.released.north is not None:
-                self.callbacks.dpad.released.north()
+            if self.callbacks.dpad.north.released is not None:
+                self.callbacks.dpad.north.released()
 
         if self.gamepadState.dpad.south == 0 and previous_south_dpad == 1:
-            if self.callbacks.dpad.released.south is not None:
-                self.callbacks.dpad.released.south()
+            if self.callbacks.dpad.south.released is not None:
+                self.callbacks.dpad.south.released()
 
         if self.gamepadState.dpad.east == 0 and previous_east_dpad == 1:
-            if self.callbacks.dpad.released.east is not None:
-                self.callbacks.dpad.released.east()
-
+            if self.callbacks.dpad.east.released is not None:
+                self.callbacks.dpad.east.released()
         if self.gamepadState.dpad.west == 0 and previous_west_dpad == 1:
-            if self.callbacks.dpad.released.west is not None:
-                self.callbacks.dpad.released.west()
+            if self.callbacks.dpad.west.released is not None:
+                self.callbacks.dpad.west.released()
 
         ## Pressed
         if self.gamepadState.dpad.north == 1 and previous_north_dpad == 1:
-            if self.callbacks.dpad.pressed.north is not None:
-                self.callbacks.dpad.pressed.north()
+            if self.callbacks.dpad.north.pressed is not None:
+                self.callbacks.dpad.north.pressed()
 
         if self.gamepadState.dpad.south == 1 and previous_south_dpad == 1:
-            if self.callbacks.dpad.pressed.south is not None:
-                self.callbacks.dpad.pressed.south()
-
+            if self.callbacks.dpad.south.pressed is not None:
+                self.callbacks.dpad.south.pressed()
         if self.gamepadState.dpad.east == 1 and previous_east_dpad == 1:
-            if self.callbacks.dpad.pressed.east is not None:
-                self.callbacks.dpad.pressed.east()
+            if self.callbacks.dpad.east.pressed is not None:
+                self.callbacks.dpad.east.pressed()
 
         if self.gamepadState.dpad.west == 1 and previous_west_dpad == 1:
-            if self.callbacks.dpad.pressed.west is not None:
-                self.callbacks.dpad.pressed.west()
+            if self.callbacks.dpad.west.pressed is not None:
+                self.callbacks.dpad.west.pressed()

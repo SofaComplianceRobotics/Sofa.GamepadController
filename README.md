@@ -29,8 +29,8 @@ def createScene(rootnode):
         print(f"Left stick moved: horizontal={horizontal}, vertical={vertical}")
 
     callbacks = GamepadCallbacks()
-    callbacks.buttons.released.south = printAReleased
-    callbacks.sticks.left = printLeftStickMoved
+    callbacks.buttons.south.released = printAReleased
+    callbacks.sticks.left.moved = printLeftStickMoved
     # Adds the controller to thhe SOFA scene
     rootnode.addObject(GamepadSofaController(callbacks=callbacks))
 ```
@@ -40,6 +40,42 @@ You can also run the example scene in [`runSofa -lSofaPython3 example.py`](examp
 **Important**: The callbacks have a typed signature, check the docstring. You can use captured variables to modify objects inside the callback.
 
 **Note**: On Windows, if you want to use Dualshock 4 controllers, install [DS4Windows](https://ds4-windows.com/get-started/). This emulates XBox controllers and make the gamepad compatible with Windows 10+.
+
+### List of callbacks
+
+**Buttons:**
+- `callbacks.buttons.north.pressed()`
+- `callbacks.buttons.north.released()`
+- `callbacks.buttons.south.pressed()`
+- `callbacks.buttons.south.released()`
+- `callbacks.buttons.east.pressed()`
+- `callbacks.buttons.east.released()`
+- `callbacks.buttons.west.pressed()`
+- `callbacks.buttons.west.released()`
+
+**Dpad:**
+- `callbacks.dpad.north.pressed()`
+- `callbacks.dpad.north.released()`
+- `callbacks.dpad.south.pressed()`
+- `callbacks.dpad.south.released()`
+- `callbacks.dpad.east.pressed()`
+- `callbacks.dpad.east.released()`
+- `callbacks.dpad.west.pressed()`
+- `callbacks.dpad.west.released()`
+
+**Sticks:**
+- `callbacks.sticks.left.moved(horizontal: float, vertical: float)`
+- `callbacks.sticks.left.pressed()`
+- `callbacks.sticks.left.released()`
+- `callbacks.sticks.right.moved(horizontal: float, vertical: float)`
+- `callbacks.sticks.right.pressed()`
+- `callbacks.sticks.right.released()`
+
+**Triggers:**
+- `callbacks.triggers.left.t()`
+- `callbacks.triggers.left.z(value: float)`
+- `callbacks.triggers.right.t()`
+- `callbacks.triggers.right.z(value: float)`
 
 ## Supported Controllers
 

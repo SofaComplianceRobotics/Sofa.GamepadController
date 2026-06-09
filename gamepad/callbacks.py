@@ -1,38 +1,6 @@
 from typing import Callable
 
 
-class _Trigger:
-    """Class to hold the callbacks for a trigger.
-    
-    Parameters:
-        t: Callable[[int], None] = None
-            Callback for the trigger, takes the trigger value as input
-        z: Callable[[int], None] = None
-            Callback for the trigger, takes the trigger value as input
-    """
-    t: Callable[[int], None] = None
-    z: Callable[[int], None] = None
-
-
-class _Directional:
-    """Class to hold the callbacks for the directional inputs.
-    
-    Parameters:
-        south: Callable[[int], None] = None
-            Callback for the south direction, takes the direction value as input
-        north: Callable[[int], None] = None
-            Callback for the north direction, takes the direction value as input
-        east: Callable[[int], None] = None
-            Callback for the east direction, takes the direction value as input
-        west: Callable[[int], None] = None
-            Callback for the west direction, takes the direction value as input
-    """
-    south: Callable[[int], None] = None
-    north: Callable[[int], None] = None
-    east: Callable[[int], None] = None
-    west: Callable[[int], None] = None
-
-
 class _Stick:
     """Class to hold the callbacks for a stick.
     
@@ -62,6 +30,19 @@ class _Sticks:
     right: _Stick = _Stick()
 
 
+class _Trigger:
+    """Class to hold the callbacks for a trigger.
+    
+    Parameters:
+        t: Callable[[int], None] = None
+            Callback for the trigger, takes the trigger value as input
+        z: Callable[[int], None] = None
+            Callback for the trigger, takes the trigger value as input
+    """
+    t: Callable[[int], None] = None
+    z: Callable[[int], None] = None
+
+
 class _Triggers:
     """Class to hold the callbacks for the triggers.
     
@@ -75,17 +56,36 @@ class _Triggers:
     right: _Trigger = _Trigger()
 
 
-class _Buttons:
+class _Button:
     """Class to hold the callbacks for the buttons.
 
     Parameters:
-        released: _Directional = _Directional()
-            Callbacks for button click events (on release) in each direction
-        pressed: _Directional = _Directional()
-            Callbacks for button press events (on hold down) in each direction
+        released: Callable[[None], None] = None
+            Callback for button release
+        pressed: Callable[[None], None] = None
+            Callback for button press
     """
-    released : _Directional = _Directional()
-    pressed : _Directional = _Directional()
+    released : Callable[[None], None] = None
+    pressed : Callable[[None], None] = None
+
+
+class _Directional:
+    """Class to hold the callbacks for the directional inputs.
+    
+    Parameters:
+        south: _Button = _Button()
+            South button callbacks
+        north: _Button = _Button()
+            North button callbacks  
+        east: _Button = _Button()
+            East button callbacks
+        west: _Button = _Button()
+            West button callbacks
+    """
+    south: _Button = _Button()
+    north: _Button = _Button()
+    east: _Button = _Button()
+    west: _Button = _Button()
 
 
 class GamepadCallbacks:
@@ -96,11 +96,12 @@ class GamepadCallbacks:
             Callbacks for the sticks
         triggers: _Triggers = _Triggers()
             Callbacks for the triggers
-        buttons: _Buttons = _Buttons()
+        buttons: _Directional = _Directional()
             Callbacks for the buttons
+        dpad: _Directional = _Directional()
+            Callbacks for the d-pad
     """
-
     sticks : _Sticks = _Sticks()
     triggers : _Triggers = _Triggers()
-    buttons : _Buttons = _Buttons()
-    dpad : _Buttons = _Buttons()
+    buttons : _Directional = _Directional()
+    dpad : _Directional = _Directional()
