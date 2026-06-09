@@ -9,21 +9,21 @@ There are two important classes for users: `GamepadSofaController` and `GamepadC
 
 `GamepadSofaController` needs to be fed a `GamepadCallbacks` object that implements callbacks for the events that you are interested into.
 
-For example, if you just want to react to a clicked `A` button or a left stick movement:
+For example, if you just want to react to a released `A` button or a left stick movement:
 
 ```python
 from gamepad import GamepadSofaController, GamepadCallbacks
 
 def createScene(rootnode):
 
-    def printAClicked():
-        print("You clicked A button!")
+    def printAReleased():
+        print("You released A button!")
 
     def printLeftStickMoved(horizontal, vertical):
         print(f"Left stick moved: horizontal={horizontal}, vertical={vertical}")
 
     callbacks = GamepadCallbacks()
-    callbacks.buttons.clicked.south = printAClicked
+    callbacks.buttons.released.south = printAReleased
     callbacks.sticks.left = printLeftStickMoved
     # Adds the controller to thhe SOFA scene
     rootnode.addObject(GamepadSofaController(callbacks=callbacks))

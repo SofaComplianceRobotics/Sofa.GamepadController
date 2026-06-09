@@ -33,18 +33,34 @@ class _Directional:
     west: Callable[[int], None] = None
 
 
+class _Stick:
+    """Class to hold the callbacks for a stick.
+    
+    Parameters:
+        moved: Callable[[int, int], None] = None
+            Callback for stick movement, takes horizontal and vertical values as input
+        released: Callable[[None], None] = None
+            Callback for stick release, takes the stick value as input
+        pressed: Callable[[None], None] = None
+            Callback for stick press, takes the stick value as input
+    """
+    moved: Callable[[int, int], None] = None
+    released: Callable[[None], None] = None
+    pressed: Callable[[None], None] = None
+
+
 class _Sticks:
     """Class to hold the callbacks for the sticks.
     
     Parameters:
-        left: Callable[[int, int], None] = None 
-            Callback for the left stick, takes horizontal and vertical values as input
-        right: Callable[[int, int], None] = None
-            Callback for the right stick, takes horizontal and vertical values as input
+        left: _Stick = _Stick()
+            Callbacks for the left stick
+        right: _Stick = Stick()
+            Callbacks for the right stick
     """
-    left: Callable[[int, int], None] = None
-    right: Callable[[int, int], None] = None
-    
+    left: _Stick = _Stick()
+    right: _Stick = _Stick()
+
 
 class _Triggers:
     """Class to hold the callbacks for the triggers.
@@ -63,12 +79,12 @@ class _Buttons:
     """Class to hold the callbacks for the buttons.
 
     Parameters:
-        clicked: _Directional = _Directional()
+        released: _Directional = _Directional()
             Callbacks for button click events (on release) in each direction
         pressed: _Directional = _Directional()
             Callbacks for button press events (on hold down) in each direction
     """
-    clicked : _Directional = _Directional()
+    released : _Directional = _Directional()
     pressed : _Directional = _Directional()
 
 
@@ -87,3 +103,4 @@ class GamepadCallbacks:
     sticks : _Sticks = _Sticks()
     triggers : _Triggers = _Triggers()
     buttons : _Buttons = _Buttons()
+    dpad : _Buttons = _Buttons()

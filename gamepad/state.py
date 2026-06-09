@@ -4,6 +4,7 @@ from enum import Enum
 class _Directional:
     vertical: int = 0
     horizontal: int = 0
+    button: int = 0
 
 class _Trigger():
     t: int = 0
@@ -28,6 +29,7 @@ class GamepadState:
     sticks: _Sticks = _Sticks()
     triggers: _Triggers = _Triggers()
     buttons: _Buttons = _Buttons()
+    dpad: _Buttons = _Buttons()
 
     def update(self, event):
         """Update the gamepad state based on the latest event.
@@ -41,6 +43,16 @@ class GamepadState:
             self.buttons.east = event.state
         elif event.code == "BTN_WEST":
             self.buttons.west = event.state
+        elif event.code == "ABS_HAT0X": # D-pad horizontal
+            self.dpad.east = 1 if event.state == 1 else 0
+            self.dpad.west = 1 if event.state == -1 else 0
+        elif event.code == "ABS_HAT0Y": # D-pad vertical
+            self.dpad.north = 1 if event.state == -1 else 0
+            self.dpad.south = 1 if event.state == 1 else 0
+        elif event.code == "BTN_THUMBL": # Left stick press
+            self.sticks.left.button = event.state
+        elif event.code == "BTN_THUMBR": # Right stick press
+            self.sticks.right.button = event.state
 
 class XBoxTurtleBeach(GamepadState):
 
