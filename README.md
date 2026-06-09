@@ -3,6 +3,12 @@ This module allows you to handle gamepad events in your SOFA scene.
 
 <img src="images/xbox_controller_mappings.jpg" width="800px"></img>
 
+## Requirements
+
+SOFA with the SofaPython3 plugin, and the `inputs` Python library. You can install it with pip:
+
+`python3 -m pip install inputs`
+
 ## Usage
 
 There are two important classes for users: `GamepadSofaController` and `GamepadCallbacks`
