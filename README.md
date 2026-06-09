@@ -44,38 +44,38 @@ You can also run the example scene in [`runSofa -lSofaPython3 example.py`](examp
 ### List of callbacks
 
 **Buttons:**
-- `callbacks.buttons.north.pressed()`
-- `callbacks.buttons.north.released()`
-- `callbacks.buttons.south.pressed()`
-- `callbacks.buttons.south.released()`
-- `callbacks.buttons.east.pressed()`
-- `callbacks.buttons.east.released()`
-- `callbacks.buttons.west.pressed()`
-- `callbacks.buttons.west.released()`
+- `GamepadCallbacks.buttons.north.pressed()`
+- `GamepadCallbacks.buttons.north.released()`
+- `GamepadCallbacks.buttons.south.pressed()`
+- `GamepadCallbacks.buttons.south.released()`
+- `GamepadCallbacks.buttons.east.pressed()`
+- `GamepadCallbacks.buttons.east.released()`
+- `GamepadCallbacks.buttons.west.pressed()`
+- `GamepadCallbacks.buttons.west.released()`
 
 **Dpad:**
-- `callbacks.dpad.north.pressed()`
-- `callbacks.dpad.north.released()`
-- `callbacks.dpad.south.pressed()`
-- `callbacks.dpad.south.released()`
-- `callbacks.dpad.east.pressed()`
-- `callbacks.dpad.east.released()`
-- `callbacks.dpad.west.pressed()`
-- `callbacks.dpad.west.released()`
+- `GamepadCallbacks.dpad.north.pressed()`
+- `GamepadCallbacks.dpad.north.released()`
+- `GamepadCallbacks.dpad.south.pressed()`
+- `GamepadCallbacks.dpad.south.released()`
+- `GamepadCallbacks.dpad.east.pressed()`
+- `GamepadCallbacks.dpad.east.released()`
+- `GamepadCallbacks.dpad.west.pressed()`
+- `GamepadCallbacks.dpad.west.released()`
 
 **Sticks:**
-- `callbacks.sticks.left.moved(horizontal: float, vertical: float)`
-- `callbacks.sticks.left.pressed()`
-- `callbacks.sticks.left.released()`
-- `callbacks.sticks.right.moved(horizontal: float, vertical: float)`
-- `callbacks.sticks.right.pressed()`
-- `callbacks.sticks.right.released()`
+- `GamepadCallbacks.sticks.left.moved(horizontal: float, vertical: float)`
+- `GamepadCallbacks.sticks.left.pressed()`
+- `GamepadCallbacks.sticks.left.released()`
+- `GamepadCallbacks.sticks.right.moved(horizontal: float, vertical: float)`
+- `GamepadCallbacks.sticks.right.pressed()`
+- `GamepadCallbacks.sticks.right.released()`
 
 **Triggers:**
-- `callbacks.triggers.left.t()`
-- `callbacks.triggers.left.z(value: float)`
-- `callbacks.triggers.right.t()`
-- `callbacks.triggers.right.z(value: float)`
+- `GamepadCallbacks.triggers.left.t()`
+- `GamepadCallbacks.triggers.left.z(value: float)`
+- `GamepadCallbacks.triggers.right.t()`
+- `GamepadCallbacks.triggers.right.z(value: float)`
 
 ## Supported Controllers
 
