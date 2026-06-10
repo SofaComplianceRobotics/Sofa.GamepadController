@@ -53,6 +53,10 @@ class GamepadState:
             self.sticks.left.button = event.state
         elif event.code == "BTN_THUMBR": # Right stick press
             self.sticks.right.button = event.state
+        elif event.code == "BTN_TL":     # Left bumper (LB)
+            self.triggers.left.t = event.state
+        elif event.code == "BTN_TR":     # Right bumper (RB)
+            self.triggers.right.t = event.state
 
 class XBoxTurtleBeach(GamepadState):
 
