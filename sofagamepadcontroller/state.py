@@ -2,34 +2,39 @@ from enum import Enum
 
 
 class _Directional:
-    vertical: int = 0
-    horizontal: int = 0
-    button: int = 0
+    def __init__(self):    
+        self.vertical: int = 0
+        self.horizontal: int = 0
+        self.button: int = 0
 
 class _Trigger():
-    t: int = 0
-    z: int = 0
+    def __init__(self):
+        self.t: int = 0
+        self.z: int = 0
 
 class _Sticks():
-    left: _Directional = _Directional()
-    right: _Directional = _Directional()
+    def __init__(self):
+        self.left: _Directional = _Directional()
+        self.right: _Directional = _Directional()
 
 class _Triggers:
-    left: _Trigger = _Trigger()
-    right: _Trigger = _Trigger()
+    def __init__(self):
+        self.left: _Trigger = _Trigger()
+        self.right: _Trigger = _Trigger()
 
 class _Buttons:
-    south: int = 0
-    north: int = 0
-    east: int = 0
-    west: int = 0
+    def __init__(self):
+        self.south: int = 0
+        self.north: int = 0
+        self.east: int = 0
+        self.west: int = 0
 
 class GamepadState:
-    
-    sticks: _Sticks = _Sticks()
-    triggers: _Triggers = _Triggers()
-    buttons: _Buttons = _Buttons()
-    dpad: _Buttons = _Buttons()
+    def __init__(self):
+        self.sticks: _Sticks = _Sticks()
+        self.triggers: _Triggers = _Triggers()
+        self.buttons: _Buttons = _Buttons()
+        self.dpad: _Buttons = _Buttons()
 
     def update(self, event):
         """Update the gamepad state based on the latest event.
@@ -43,19 +48,19 @@ class GamepadState:
             self.buttons.east = event.state
         elif event.code == "BTN_WEST":
             self.buttons.west = event.state
-        elif event.code == "ABS_HAT0X": # D-pad horizontal
+        elif event.code == "ABS_HAT0X": 
             self.dpad.east = 1 if event.state == 1 else 0
             self.dpad.west = 1 if event.state == -1 else 0
-        elif event.code == "ABS_HAT0Y": # D-pad vertical
+        elif event.code == "ABS_HAT0Y": 
             self.dpad.north = 1 if event.state == -1 else 0
             self.dpad.south = 1 if event.state == 1 else 0
-        elif event.code == "BTN_THUMBL": # Left stick press
+        elif event.code == "BTN_THUMBL": 
             self.sticks.left.button = event.state
-        elif event.code == "BTN_THUMBR": # Right stick press
+        elif event.code == "BTN_THUMBR":
             self.sticks.right.button = event.state
-        elif event.code == "BTN_TL":     # Left bumper (LB)
+        elif event.code == "BTN_TL":     
             self.triggers.left.t = event.state
-        elif event.code == "BTN_TR":     # Right bumper (RB)
+        elif event.code == "BTN_TR":     
             self.triggers.right.t = event.state
 
 class XBoxTurtleBeach(GamepadState):
