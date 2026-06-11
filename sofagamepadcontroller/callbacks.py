@@ -3,7 +3,7 @@ from typing import Callable
 
 class _Stick:
     """Class to hold the callbacks for a stick.
-    
+
     Parameters:
         moved: Callable[[int, int], None] = None
             Callback for stick movement, takes horizontal and vertical values as input
@@ -12,48 +12,52 @@ class _Stick:
         pressed: Callable[[None], None] = None
             Callback for stick press, takes the stick value as input
     """
-    moved: Callable[[int, int], None] = None
-    released: Callable[[None], None] = None
-    pressed: Callable[[None], None] = None
+    def __init__(self):
+        self.moved: Callable[[int, int], None] = None
+        self.released: Callable[[None], None] = None
+        self.pressed: Callable[[None], None] = None
 
 
 class _Sticks:
     """Class to hold the callbacks for the sticks.
-    
+
     Parameters:
         left: _Stick = _Stick()
             Callbacks for the left stick
         right: _Stick = Stick()
             Callbacks for the right stick
     """
-    left: _Stick = _Stick()
-    right: _Stick = _Stick()
+    def __init__(self):
+        self.left: _Stick = _Stick()
+        self.right: _Stick = _Stick()
 
 
 class _Trigger:
     """Class to hold the callbacks for a trigger.
-    
+
     Parameters:
         t: Callable[[int], None] = None
             Callback for the trigger, takes the trigger value as input
         z: Callable[[int], None] = None
             Callback for the trigger, takes the trigger value as input
     """
-    t: Callable[[int], None] = None
-    z: Callable[[int], None] = None
+    def __init__(self):
+        self.t: Callable[[int], None] = None
+        self.z: Callable[[int], None] = None
 
 
 class _Triggers:
     """Class to hold the callbacks for the triggers.
-    
+
     Parameters:
         left: _Trigger = _Trigger()
             Left trigger callbacks
         right: _Trigger = _Trigger()
             Right trigger callbacks
     """
-    left: _Trigger = _Trigger()
-    right: _Trigger = _Trigger()
+    def __init__(self):
+        self.left: _Trigger = _Trigger()
+        self.right: _Trigger = _Trigger()
 
 
 class _Button:
@@ -65,32 +69,34 @@ class _Button:
         pressed: Callable[[None], None] = None
             Callback for button press
     """
-    released : Callable[[None], None] = None
-    pressed : Callable[[None], None] = None
+    def __init__(self):
+        self.released: Callable[[None], None] = None
+        self.pressed: Callable[[None], None] = None
 
 
 class _Directional:
     """Class to hold the callbacks for the directional inputs.
-    
+
     Parameters:
         south: _Button = _Button()
             South button callbacks
         north: _Button = _Button()
-            North button callbacks  
+            North button callbacks
         east: _Button = _Button()
             East button callbacks
         west: _Button = _Button()
             West button callbacks
     """
-    south: _Button = _Button()
-    north: _Button = _Button()
-    east: _Button = _Button()
-    west: _Button = _Button()
+    def __init__(self):
+        self.south: _Button = _Button()
+        self.north: _Button = _Button()
+        self.east: _Button = _Button()
+        self.west: _Button = _Button()
 
 
 class GamepadCallbacks:
     """Class to hold the callbacks for the different gamepad inputs.
-    
+
     Parameters:
         sticks: _Sticks = _Sticks()
             Callbacks for the sticks
@@ -101,7 +107,8 @@ class GamepadCallbacks:
         dpad: _Directional = _Directional()
             Callbacks for the d-pad
     """
-    sticks : _Sticks = _Sticks()
-    triggers : _Triggers = _Triggers()
-    buttons : _Directional = _Directional()
-    dpad : _Directional = _Directional()
+    def __init__(self):
+        self.sticks: _Sticks = _Sticks()
+        self.triggers: _Triggers = _Triggers()
+        self.buttons: _Directional = _Directional()
+        self.dpad: _Directional = _Directional()
